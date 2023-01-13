@@ -13,6 +13,9 @@ public class SettingsActivity extends AppCompatActivity{
         Toolbar toolbar = findViewById(app004.flagquizapp.R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Bundle extras = getIntent().getExtras();
+        String usuario = extras.getString("usuario");
+
     }
 
 }

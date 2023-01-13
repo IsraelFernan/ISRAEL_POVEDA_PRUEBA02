@@ -57,13 +57,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Bundle extras = getIntent().getExtras();
         this.usuario = extras.getString("usuario");
-        this.setSharedPreferences();
-        this.screenSetUp();
-        Log.d("referencias",String.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getAll()));
-        this.referencias = getSharedPreferences(this.usuario, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = referencias.edit();
-        editor.putString("configuracion",String.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getAll()));
-        editor.commit();
+        if(this.usuario != null){
+            this.setSharedPreferences();
+            this.screenSetUp();
+            Log.d("referencias",String.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getAll()));
+            this.referencias = getSharedPreferences(this.usuario, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = referencias.edit();
+            editor.putString("configuracion",String.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getAll()));
+            editor.commit();
+        }
+
     }
 
     @Override
